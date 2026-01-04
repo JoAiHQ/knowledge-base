@@ -4,8 +4,9 @@ This repository contains all knowledge base articles for [JoAi](https://joai.ai)
 
 ## Structure
 
-- `articles/{locale}/{category}/{slug}.md` - Article markdown files
-- `images/{category}/{slug}/` - Article images and assets
+- `articles/{category}/{slug}/article.{locale}.md` - Locale-specific article files (e.g., `article.en.md`, `article.de.md`)
+- `articles/{category}/{slug}/article.md` - Universal article file (fallback when no locale-specific version exists)
+- `articles/{category}/{slug}/*.png|jpg|gif|svg` - Embedded images and assets (referenced with relative paths like `./image.png`)
 - `templates/` - Templates for creating new articles
 
 ## Locales
@@ -44,10 +45,23 @@ keywords: ['keyword1', 'keyword2', 'keyword3']
 
 ## Workflow
 
-1. Create article in `articles/{locale}/{category}/`
-2. Add images to `images/{category}/{slug}/`
-3. Commit and push to GitHub
-4. App automatically fetches content on build
+1. Create article folder: `articles/{category}/{slug}/`
+2. Add article file(s):
+   - `article.en.md` for English version
+   - `article.de.md` for German version
+   - `article.md` for universal/fallback version
+3. Add images directly to the article folder and reference with relative paths: `![Alt text](./image.png)`
+4. Commit and push to GitHub
+5. App automatically fetches content on build
+
+### Image References
+
+Images should be placed directly in the article folder and referenced with relative paths:
+
+```markdown
+![Dashboard](./dashboard.png)
+![Workflow Diagram](./workflow-diagram.svg)
+```
 
 ## Links
 
