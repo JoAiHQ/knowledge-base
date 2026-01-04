@@ -1,25 +1,24 @@
 ---
-title: "Erste Schritte mit KI-Agenten"
-description: "Erfahren Sie, wie Sie Ihren ersten KI-Agenten in JoAi erstellen und konfigurieren. Dieser Leitfaden behandelt die grundlegende Einrichtung, Konfigurationsoptionen und Best Practices für Anfänger."
-category: "ai"
-tags: ["ai", "agents", "getting-started", "tutorial"]
-author: "JoAi Team"
-publishedAt: "2024-01-15"
-updatedAt: "2024-01-15"
+title: 'Erste Schritte mit KI-Agenten'
+description: 'Erfahren Sie, wie Sie Ihren ersten KI-Agenten in JoAi erstellen und konfigurieren. Dieser Leitfaden behandelt die grundlegende Einrichtung, Konfigurationsoptionen und Best Practices für Anfänger.'
+category: 'ai'
+tags: ['ai', 'agents', 'getting-started', 'tutorial']
+author: 'JoAi Team'
+publishedAt: '2024-01-15'
+updatedAt: '2024-01-15'
 featured: false
-difficulty: "beginner"
+difficulty: 'beginner'
 readTime: 5
-keywords: ["ki agenten", "künstliche intelligenz", "automatisierung", "erste schritte"]
+keywords:
+  ['ki agenten', 'künstliche intelligenz', 'automatisierung', 'erste schritte']
 relatedArticles: []
 faqs:
-  - question: "Was ist ein KI-Agent?"
-    answer: "Ein KI-Agent ist ein autonomes System, das Aufgaben ausführen, Entscheidungen treffen und mit anderen Systemen in Ihrem Namen interagieren kann."
-  - question: "Benötige ich Programmierkenntnisse, um KI-Agenten zu verwenden?"
-    answer: "Nein, JoAi bietet eine benutzerfreundliche Oberfläche, mit der Sie KI-Agenten ohne Programmierkenntnisse erstellen und konfigurieren können."
-llmAnswer: "KI-Agenten in JoAi sind autonome Systeme, die Aufgaben ausführen und Entscheidungen treffen können. Sie können sie über eine einfache Oberfläche ohne Programmierkenntnisse erstellen."
+  - question: 'Was ist ein KI-Agent?'
+    answer: 'Ein KI-Agent ist ein autonomes System, das Aufgaben ausführen, Entscheidungen treffen und mit anderen Systemen in Ihrem Namen interagieren kann.'
+  - question: 'Benötige ich Programmierkenntnisse, um KI-Agenten zu verwenden?'
+    answer: 'Nein, JoAi bietet eine benutzerfreundliche Oberfläche, mit der Sie KI-Agenten ohne Programmierkenntnisse erstellen und konfigurieren können.'
+llmAnswer: 'KI-Agenten in JoAi sind autonome Systeme, die Aufgaben ausführen und Entscheidungen treffen können. Sie können sie über eine einfache Oberfläche ohne Programmierkenntnisse erstellen.'
 ---
-
-# Erste Schritte mit KI-Agenten
 
 Willkommen bei JoAi! Dieser Artikel hilft Ihnen dabei, Ihren ersten KI-Agenten zu erstellen und die Grundlagen ihrer Funktionsweise zu verstehen.
 

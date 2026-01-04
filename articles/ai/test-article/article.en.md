@@ -1,25 +1,24 @@
 ---
-title: "Getting Started with AI Agents"
-description: "Learn how to create and configure your first AI agent in JoAi. This guide covers basic setup, configuration options, and best practices for beginners."
-category: "ai"
-tags: ["ai", "agents", "getting-started", "tutorial"]
-author: "JoAi Team"
-publishedAt: "2024-01-15"
-updatedAt: "2024-01-15"
+title: 'Getting Started with AI Agents'
+description: 'Learn how to create and configure your first AI agent in JoAi. This guide covers basic setup, configuration options, and best practices for beginners.'
+category: 'ai'
+tags: ['ai', 'agents', 'getting-started', 'tutorial']
+author: 'JoAi Team'
+publishedAt: '2024-01-15'
+updatedAt: '2024-01-15'
 featured: false
-difficulty: "beginner"
+difficulty: 'beginner'
 readTime: 5
-keywords: ["ai agents", "artificial intelligence", "automation", "getting started"]
+keywords:
+  ['ai agents', 'artificial intelligence', 'automation', 'getting started']
 relatedArticles: []
 faqs:
-  - question: "What is an AI agent?"
-    answer: "An AI agent is an autonomous system that can perform tasks, make decisions, and interact with other systems on your behalf."
-  - question: "Do I need coding experience to use AI agents?"
-    answer: "No, JoAi provides a user-friendly interface that allows you to create and configure AI agents without any programming knowledge."
-llmAnswer: "AI agents in JoAi are autonomous systems that can perform tasks and make decisions. You can create them through a simple interface without coding experience."
+  - question: 'What is an AI agent?'
+    answer: 'An AI agent is an autonomous system that can perform tasks, make decisions, and interact with other systems on your behalf.'
+  - question: 'Do I need coding experience to use AI agents?'
+    answer: 'No, JoAi provides a user-friendly interface that allows you to create and configure AI agents without any programming knowledge.'
+llmAnswer: 'AI agents in JoAi are autonomous systems that can perform tasks and make decisions. You can create them through a simple interface without coding experience.'
 ---
-
-# Getting Started with AI Agents
 
 Welcome to JoAi! This article will help you create your first AI agent and understand the basics of how they work.
 
