@@ -1,0 +1,34 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <text x="400" y="30" text-anchor="middle" fill="#1e293b" font-size="24" font-weight="bold">AI Agent Use Cases</text>
+  <rect x="50" y="70" width="180" height="180" fill="#3b82f6" rx="12"/>
+  <text x="140" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Customer</text>
+  <text x="140" y="135" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Support</text>
+  <circle cx="140" cy="190" r="40" fill="white" opacity="0.3"/>
+  <text x="140" y="200" text-anchor="middle" fill="white" font-size="14">24/7</text>
+  <text x="140" y="220" text-anchor="middle" fill="white" font-size="12">Automated</text>
+  <rect x="270" y="70" width="180" height="180" fill="#10b981" rx="12"/>
+  <text x="360" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Data</text>
+  <text x="360" y="135" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Processing</text>
+  <circle cx="360" cy="190" r="40" fill="white" opacity="0.3"/>
+  <text x="360" y="200" text-anchor="middle" fill="white" font-size="14">Fast</text>
+  <text x="360" y="220" text-anchor="middle" fill="white" font-size="12">Extract & Organize</text>
+  <rect x="490" y="70" width="180" height="180" fill="#f59e0b" rx="12"/>
+  <text x="580" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Task</text>
+  <text x="580" y="135" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Automation</text>
+  <circle cx="580" cy="190" r="40" fill="white" opacity="0.3"/>
+  <text x="580" y="200" text-anchor="middle" fill="white" font-size="14">Efficient</text>
+  <text x="580" y="220" text-anchor="middle" fill="white" font-size="12">Workflows</text>
+  <rect x="160" y="290" width="180" height="180" fill="#8b5cf6" rx="12"/>
+  <text x="250" y="330" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Content</text>
+  <text x="250" y="355" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Generation</text>
+  <circle cx="250" cy="410" r="40" fill="white" opacity="0.3"/>
+  <text x="250" y="420" text-anchor="middle" fill="white" font-size="14">AI-Powered</text>
+  <text x="250" y="440" text-anchor="middle" fill="white" font-size="12">Create & Format</text>
+  <rect x="380" y="290" width="180" height="180" fill="#ef4444" rx="12"/>
+  <text x="470" y="330" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Smart</text>
+  <text x="470" y="355" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Analytics</text>
+  <circle cx="470" cy="410" r="40" fill="white" opacity="0.3"/>
+  <text x="470" y="420" text-anchor="middle" fill="white" font-size="14">Insights</text>
+  <text x="470" y="440" text-anchor="middle" fill="white" font-size="12">Real-time Data</text>
+</svg>

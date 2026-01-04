@@ -23,6 +23,8 @@ llmAnswer: "AI agents in JoAi are autonomous systems that can perform tasks and 
 
 Welcome to JoAi! This article will help you create your first AI agent and understand the basics of how they work.
 
+![AI Agent Dashboard](./dashboard.png)
+
 ## What You'll Learn
 
 - How to create your first AI agent
@@ -34,6 +36,8 @@ Welcome to JoAi! This article will help you create your first AI agent and under
 
 To create a new AI agent, navigate to the Agents section in your JoAi dashboard. Click the "Create New Agent" button and follow these steps:
 
+![Agent Creation Workflow](./workflow-diagram.svg)
+
 1. **Name your agent** - Choose a descriptive name that reflects its purpose
 2. **Select a template** - Start with a pre-configured template or build from scratch
 3. **Configure capabilities** - Define what your agent can do
@@ -42,6 +46,8 @@ To create a new AI agent, navigate to the Agents section in your JoAi dashboard.
 ## Basic Configuration
 
 Every AI agent requires some basic configuration:
+
+![Configuration Options](./configuration-screenshot.png)
 
 - **Purpose**: Define what task your agent should perform
 - **Triggers**: Set up when and how your agent should activate
@@ -66,6 +72,8 @@ AI agents can be used for various tasks:
 - **Data Processing**: Extract and organize information from documents
 - **Task Automation**: Handle repetitive workflows
 - **Content Generation**: Create and format content automatically
+
+![Use Cases Diagram](./use-cases.png)
 
 ## Conclusion
 
