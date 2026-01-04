@@ -1,6 +1,6 @@
 ---
-title: 'GitHub Integration Guide'
-description: 'Learn how to set up and use the GitHub integration in Warpbase. Create issues, manage pull requests, search repositories, and automate your GitHub workflow.'
+title: 'GitHub Integration Guide for JoAi'
+description: 'Set up GitHub integration with JoAi in 5 minutes. Create issues, manage pull requests, search repositories, and automate workflows using GitHub REST API v3. Complete setup guide.'
 category: 'integrations'
 tags: ['github', 'integration', 'api', 'automation', 'version-control']
 author: 'JoAi Team'
@@ -10,9 +10,11 @@ featured: false
 difficulty: 'intermediate'
 readTime: 12
 keywords:
-  ['github', 'git', 'repository', 'issues', 'pull requests', 'api', 'automation']
+  ['github integration', 'github integration setup', 'connect github joai', 'github api integration', 'github automation', 'github workflow automation', 'github rest api', 'github personal access token', 'github issues api', 'github pull requests']
 relatedArticles: []
 faqs:
+  - question: 'How long does GitHub integration setup take?'
+    answer: 'Setup takes approximately 5 minutes. You need to create a Personal Access Token and set it as an environment variable.'
   - question: 'What permissions does the GitHub integration need?'
     answer: 'The integration requires a Personal Access Token with the `repo` scope for full functionality. Additional scopes like `read:org` and `read:user` may be needed for organization repositories.'
   - question: 'Can I use this integration with private repositories?'
@@ -21,38 +23,39 @@ faqs:
     answer: 'Authenticated requests have a rate limit of 5,000 requests per hour. Unauthenticated requests are limited to 60 requests per hour.'
   - question: 'How do I create a cross-repository pull request?'
     answer: 'Use the format `username:branch-name` for the Head Branch field when creating a pull request from a fork or different repository.'
-llmAnswer: 'The GitHub integration for Warpbase allows you to manage repositories, create issues and pull requests, add comments, and search repositories using GitHub REST API v3. Setup requires a Personal Access Token with appropriate scopes.'
+llmAnswer: 'Set up GitHub integration in JoAi by creating a Personal Access Token with the `repo` scope and setting it as the GITHUB_TOKEN environment variable. This enables creating issues, pull requests, adding comments, and searching repositories via GitHub REST API v3.'
 ---
 
-The GitHub integration lets you manage your GitHub repositories, issues, and pull requests directly from Warpbase. We built this using GitHub's REST API v3, so you can automate your GitHub workflow without leaving your workspace.
+The GitHub integration for JoAi lets you manage your GitHub repositories, issues, and pull requests directly from your workspace. This GitHub integration uses GitHub's REST API v3, so you can automate your GitHub workflow without leaving JoAi. Setting up the GitHub integration takes just 5 minutes and unlocks powerful automation capabilities.
 
-Here's what you can do:
+## What You'll Learn
 
-* Create and manage issues
-* Create pull requests
-* Search repositories
-* Add comments to issues and PRs
-* Get repository information
+* How to set up GitHub integration with Personal Access Tokens
+* Creating and managing GitHub issues and pull requests
+* Searching repositories using GitHub's search syntax
+* Adding comments to issues and PRs
+* Troubleshooting common GitHub integration errors
+* Best practices for GitHub API authentication and security
 
-## Getting started
+## How to Set Up GitHub Integration
 
-You'll need a GitHub Personal Access Token to use this integration. Here's how to set it up.
+You'll need a GitHub Personal Access Token to use this GitHub integration. Here's how to set it up in just a few minutes.
 
-### Create your GitHub token
+### Create Your GitHub Personal Access Token
 
 Head over to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens) and click **"Generate new token"** → **"Generate new token (classic)"**.
 
-Give it a name like "Warpbase Integration" and set an expiration (we recommend 90 days). For scopes, you'll need:
+Give it a name like "JoAi Integration" and set an expiration (we recommend 90 days). For **GitHub integration scopes**, you'll need:
 
-* **`repo`** - This gives you full control of private repositories. You'll need this for most operations like creating issues and PRs.
+* **`repo`** - This gives you full control of private repositories. You'll need this for most GitHub integration operations like creating issues and PRs.
 * **`read:org`** - Only if you're working with organization repositories
 * **`read:user`** - For reading user profile data
 
 Click **"Generate token"** and copy it immediately. GitHub won't show it to you again.
 
-### Set your environment variable
+### Configure GitHub Integration Environment Variable
 
-Set the `GITHUB_TOKEN` environment variable with your token:
+Set the `GITHUB_TOKEN` environment variable with your **GitHub Personal Access Token**:
 
 **macOS/Linux:**
 ```bash
@@ -80,20 +83,20 @@ setx GITHUB_TOKEN "your_token_here"
 docker run -e GITHUB_TOKEN="your_token_here" ...
 ```
 
-### Test it out
+### Verify GitHub Integration Setup
 
-Try the "Get Repository" warp with a public repo to verify everything works:
+Try the "Get Repository" warp with a public repo to verify your **GitHub integration** works:
 
 * Owner: `octocat`
 * Repository: `Hello-World`
 
 If you see repository info with stars and forks, you're all set.
 
-## What you can do
+## GitHub Integration Features and Actions
 
-### Create issues
+### Create GitHub Issues
 
-Use the `github/create-issue` warp to create a new issue in any repository.
+Use the `github/create-issue` warp to create a new **GitHub issue** in any repository through the GitHub integration.
 
 You'll need:
 * Owner (username or org)
@@ -115,9 +118,9 @@ Labels: bug,priority-high
 Assignees: developer1,developer2
 ```
 
-### Get repository info
+### Get GitHub Repository Information
 
-The `github/get-repository` warp gives you all the details about any repository.
+The `github/get-repository` warp gives you all the details about any **GitHub repository** through the integration.
 
 Just provide the owner and repository name. You'll get back the name, description, stars, forks, language, and clone URLs.
 
@@ -126,9 +129,9 @@ Owner: facebook
 Repository: react
 ```
 
-### List issues
+### List GitHub Issues
 
-Use `github/list-issues` to list issues in a repo. You can filter by state (`open`, `closed`, or `all`), labels, assignee, and limit results (max 100, default 30).
+Use `github/list-issues` to list **GitHub issues** in a repo through the integration. You can filter by state (`open`, `closed`, or `all`), labels, assignee, and limit results (max 100, default 30).
 
 You'll get an array of issues and the total count.
 
@@ -141,9 +144,9 @@ Assignee: developer1
 Limit: 50
 ```
 
-### Get a specific issue
+### Get Specific GitHub Issue Details
 
-The `github/get-issue` warp pulls all the details for a single issue - title, body, state, labels, assignees, and author.
+The `github/get-issue` warp pulls all the details for a single **GitHub issue** - title, body, state, labels, assignees, and author.
 
 ```
 Owner: myusername
@@ -151,9 +154,9 @@ Repository: myproject
 Issue Number: 42
 ```
 
-### Create pull requests
+### Create GitHub Pull Requests
 
-The `github/create-pull-request` warp creates a new PR to merge changes between branches.
+The `github/create-pull-request` warp creates a new **GitHub pull request** to merge changes between branches through the integration.
 
 You'll need the owner, repo, title, head branch (source), and base branch (target, usually `main`). For cross-repo PRs, use `username:branch` format for the head branch. Set `Draft: true` if you want a draft PR.
 
@@ -169,9 +172,9 @@ Base Branch: main
 Draft: false
 ```
 
-### Add comments
+### Add Comments to GitHub Issues and PRs
 
-Use `github/add-comment` to add a comment to any issue or PR. The comment body supports Markdown.
+Use `github/add-comment` to add a comment to any **GitHub issue or pull request** through the integration. The comment body supports Markdown.
 
 You'll get back the comment ID and URL.
 
@@ -182,9 +185,9 @@ Issue Number: 42
 Comment Body: This has been fixed in the latest commit. Please test and close if working.
 ```
 
-### Search repositories
+### Search GitHub Repositories
 
-The `github/search-repositories` warp lets you search GitHub using their search syntax. You can sort by stars, forks, help-wanted-issues, or updated date, and limit results (max 100).
+The `github/search-repositories` warp lets you **search GitHub repositories** using their search syntax through the integration. You can sort by stars, forks, help-wanted-issues, or updated date, and limit results (max 100).
 
 You'll get an array of matching repositories and the total count.
 
@@ -201,9 +204,9 @@ Order: desc
 Limit: 50
 ```
 
-## Authentication
+## GitHub Integration Authentication
 
-We use Personal Access Tokens (PATs) for authentication. It's the simplest way to connect to GitHub's API.
+We use Personal Access Tokens (PATs) for GitHub integration authentication. It's the simplest way to connect to GitHub's API and manage your repositories.
 
 ### What scopes you need
 
@@ -226,17 +229,17 @@ A few things to keep in mind:
 
 GitHub limits authenticated requests to 5,000 per hour. Unauthenticated requests are capped at 60 per hour. You'll see rate limit info in response headers.
 
-## How it works
+## How GitHub Integration Works
 
-All requests go to `https://api.github.com` with your token in the Authorization header. We use GitHub's REST API v3, so everything follows their standard format.
+All GitHub integration requests go to `https://api.github.com` with your token in the Authorization header. We use GitHub's REST API v3, so everything follows their standard format.
 
-Rate limit info comes back in response headers - you'll see how many requests you have left and when the limit resets.
+Rate limit info comes back in response headers - you'll see how many requests you have left and when the limit resets. This GitHub integration handles all the API communication for you.
 
-## Real-world examples
+## GitHub Integration Use Cases and Examples
 
-### Automated bug reporting
+### Automated GitHub Issue Creation
 
-Create an issue automatically when your app detects a bug:
+Create a **GitHub issue** automatically when your app detects a bug using the GitHub integration:
 
 ```
 Action: Create Issue
@@ -255,9 +258,9 @@ Labels: bug,priority-high
 Assignees: backend-team
 ```
 
-### Monitor repository stats
+### Monitor GitHub Repository Statistics
 
-Check how your repo is doing:
+Check how your **GitHub repository** is performing using the integration:
 
 ```
 Action: Get Repository
@@ -267,9 +270,9 @@ Repository: myproject
 
 Then look at the stars, forks, and language stats.
 
-### Issue triage
+### GitHub Issue Triage Workflow
 
-Filter issues to find what needs attention:
+Filter **GitHub issues** to find what needs attention using the GitHub integration:
 
 ```
 Action: List Issues
@@ -280,9 +283,9 @@ Labels: bug,needs-triage
 Limit: 100
 ```
 
-### Cross-repo pull requests
+### Cross-Repository GitHub Pull Requests
 
-Create a PR from a fork using the `username:branch` format:
+Create a **GitHub pull request** from a fork using the `username:branch` format through the integration:
 
 ```
 Action: Create Pull Request
@@ -294,9 +297,9 @@ Head Branch: myusername:patch-1
 Base Branch: main
 ```
 
-### Find trending repos
+### Find Trending GitHub Repositories
 
-Search for popular repositories:
+Search for popular **GitHub repositories** using the integration:
 
 ```
 Action: Search Repositories
@@ -306,7 +309,7 @@ Order: desc
 Limit: 20
 ```
 
-## Troubleshooting
+## Troubleshooting GitHub Integration Issues
 
 ### "Bad credentials" error
 
@@ -382,7 +385,7 @@ All text fields support GitHub Flavored Markdown - headers, lists, code blocks, 
 
 ### Webhooks
 
-While not directly supported, you can combine GitHub webhooks with Warpbase to automatically create issues, update issues from external triggers, or sync data between systems.
+While not directly supported, you can combine GitHub webhooks with JoAi to automatically create issues, update issues from external triggers, or sync data between systems.
 
 ## Resources
 
@@ -395,4 +398,10 @@ While not directly supported, you can combine GitHub webhooks with Warpbase to a
 
 ---
 
-**Note**: This integration uses GitHub REST API v3. We're considering adding GraphQL API v4 support in the future.
+## Conclusion
+
+You're now ready to use the GitHub integration in JoAi! This GitHub integration enables you to automate your GitHub workflow, manage repositories, and streamline your development process. Start with simple operations like creating issues, then explore more advanced features like automated pull requests and repository searches.
+
+Remember to keep your Personal Access Token secure, rotate it regularly, and monitor your API rate limits. For more advanced automation, consider combining this GitHub integration with webhooks and other JoAi features. Explore other JoAi integrations to build comprehensive automation workflows.
+
+**Note**: This GitHub integration uses GitHub REST API v3. We're considering adding GraphQL API v4 support in the future.
