@@ -1,7 +1,7 @@
 ---
 title: "[Article Title - Max 60 chars]"
 description: "[Clear description 120-160 chars]"
-category: "ai|automation|integrations|blockchain|troubleshooting"
+category: "basics|guides|comparisons|integrations"
 tags: ["tag1", "tag2"]
 author: "JoAi Team"
 publishedAt: "YYYY-MM-DD"

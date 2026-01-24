@@ -16,11 +16,10 @@ This repository contains all knowledge base articles for [JoAi](https://joai.ai)
 
 ## Categories
 
-- `ai` - AI Agents
-- `automation` - Automation & Workflows
+- `basics` - Core Concepts & Fundamentals
+- `guides` - Step-by-Step Tutorials
+- `comparisons` - Tool & Feature Comparisons
 - `integrations` - API & Service Integrations
-- `blockchain` - Blockchain & Web3
-- `troubleshooting` - Common Issues & Solutions
 
 ## Creating Articles
 
