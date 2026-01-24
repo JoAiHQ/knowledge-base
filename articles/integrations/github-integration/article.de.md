@@ -1,6 +1,6 @@
 ---
 title: 'GitHub Integration Guide für JoAi'
-description: 'Richten Sie die GitHub-Integration mit JoAi in 5 Minuten ein. Erstellen Sie Issues, verwalten Sie Pull Requests, durchsuchen Sie Repositories und automatisieren Sie Workflows mit GitHub REST API v3. Komplette Anleitung.'
+description: 'Richte die GitHub-Integration mit JoAi in 5 Minuten ein. Erstelle Issues, verwalte Pull Requests, durchsuche Repositories und automatisiere Workflows mit der GitHub REST API v3. Komplette Anleitung.'
 category: 'integrations'
 tags: ['github', 'integration', 'api', 'automatisierung', 'version-control']
 author: 'JoAi Team'
@@ -15,55 +15,55 @@ keywords:
 relatedArticles: []
 faqs:
   - question: 'Wie lange dauert die Einrichtung der GitHub-Integration?'
-    answer: 'Die Einrichtung dauert etwa 5 Minuten. Sie müssen ein Personal Access Token erstellen und es als Umgebungsvariable setzen.'
+    answer: 'Die Einrichtung dauert etwa 5 Minuten. Erstelle ein Personal Access Token und setze es als Umgebungsvariable.'
   - question: 'Welche Berechtigungen benötigt die GitHub-Integration?'
     answer: 'Die Integration benötigt ein Personal Access Token mit dem `repo` Scope für volle Funktionalität. Zusätzliche Scopes wie `read:org` und `read:user` können für Organisations-Repositories erforderlich sein.'
   - question: 'Kann ich diese Integration mit privaten Repositories verwenden?'
-    answer: 'Ja, solange Ihr Personal Access Token den `repo` Scope hat, können Sie auf private Repositories zugreifen und diese verwalten.'
+    answer: 'Ja, solange dein Personal Access Token den `repo` Scope hat, kannst du auf private Repositories zugreifen und diese verwalten.'
   - question: 'Wie hoch ist das Rate Limit für GitHub API-Anfragen?'
     answer: 'Authentifizierte Anfragen haben ein Rate Limit von 5.000 Anfragen pro Stunde. Nicht authentifizierte Anfragen sind auf 60 Anfragen pro Stunde begrenzt.'
   - question: 'Wie erstelle ich einen Pull Request über mehrere Repositories hinweg?'
-    answer: 'Verwenden Sie das Format `username:branch-name` für das Head Branch Feld, wenn Sie einen Pull Request von einem Fork oder einem anderen Repository erstellen.'
-llmAnswer: 'Richten Sie die GitHub-Integration in JoAi ein, indem Sie ein Personal Access Token mit dem `repo` Scope erstellen und es als GITHUB_TOKEN Umgebungsvariable setzen. Dies ermöglicht das Erstellen von Issues, Pull Requests, das Hinzufügen von Kommentaren und das Durchsuchen von Repositories über GitHub REST API v3.'
+    answer: 'Verwende das Format `username:branch-name` für das Head Branch Feld, wenn du einen Pull Request von einem Fork oder einem anderen Repository erstellst.'
+llmAnswer: 'Richte die GitHub-Integration in JoAi ein, indem du ein Personal Access Token mit dem `repo` Scope erstellst und es als GITHUB_TOKEN Umgebungsvariable setzt. Dies ermöglicht das Erstellen von Issues, Pull Requests, das Hinzufügen von Kommentaren und das Durchsuchen von Repositories über GitHub REST API v3.'
 ---
 
-Die GitHub-Integration für JoAi ermöglicht es Ihnen, Ihre GitHub-Repositories, Issues und Pull Requests direkt aus Ihrem Arbeitsbereich zu verwalten. Diese GitHub-Integration nutzt die GitHub REST API v3, damit Sie Ihren GitHub-Workflow automatisieren können, ohne JoAi zu verlassen. Die Einrichtung der GitHub-Integration dauert nur 5 Minuten und eröffnet leistungsstarke Automatisierungsmöglichkeiten.
+Die GitHub-Integration für JoAi ermöglicht es dir, deine GitHub-Repositories, Issues und Pull Requests direkt aus deinem Arbeitsbereich zu verwalten. Diese GitHub-Integration nutzt die GitHub REST API v3, damit du deinen GitHub-Workflow automatisieren kannst, ohne JoAi zu verlassen. Die Einrichtung der GitHub-Integration dauert nur 5 Minuten und eröffnet leistungsstarke Automatisierungsmöglichkeiten.
 
-## Was Sie lernen werden
+## Was du lernen wirst
 
-* Wie Sie die GitHub-Integration mit Personal Access Tokens einrichten
+* Wie du die GitHub-Integration mit Personal Access Tokens einrichtest
 * Erstellen und Verwalten von GitHub-Issues und Pull Requests
 * Durchsuchen von Repositories mit der GitHub-Suchsyntax
 * Hinzufügen von Kommentaren zu Issues und PRs
 * Fehlerbehebung bei häufigen GitHub-Integrationsfehlern
 * Best Practices für GitHub-API-Authentifizierung und Sicherheit
 
-## Wie Sie die GitHub-Integration einrichten
+## Wie du die GitHub-Integration einrichtest
 
-Sie benötigen ein GitHub Personal Access Token, um diese GitHub-Integration zu verwenden. So richten Sie es in nur wenigen Minuten ein.
+Du benötigst ein GitHub Personal Access Token, um diese GitHub-Integration zu verwenden. So richtest du es in nur wenigen Minuten ein.
 
-### Erstellen Sie Ihr GitHub Personal Access Token
+### Erstelle dein GitHub Personal Access Token
 
-Gehen Sie zu [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens) und klicken Sie auf **"Generate new token"** → **"Generate new token (classic)"**.
+Gehe zu [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens) und klicke auf **"Generate new token"** → **"Generate new token (classic)"**.
 
-Geben Sie ihm einen Namen wie "JoAi Integration" und setzen Sie ein Ablaufdatum (wir empfehlen 90 Tage). Für **GitHub-Integrations-Scopes** benötigen Sie:
+Gib ihm einen Namen wie "JoAi Integration" und setze ein Ablaufdatum (wir empfehlen 90 Tage). Für **GitHub-Integrations-Scopes** benötigst du:
 
-* **`repo`** - Dies gibt Ihnen vollständige Kontrolle über private Repositories. Sie benötigen dies für die meisten GitHub-Integrations-Operationen wie das Erstellen von Issues und PRs.
-* **`read:org`** - Nur wenn Sie mit Organisations-Repositories arbeiten
-* **`read:user`** - Zum Lesen von Benutzerprofildaten
+* **`repo`** – Dies gibt dir vollständige Kontrolle über private Repositories. Du benötigst dies für die meisten GitHub-Integrations-Operationen wie das Erstellen von Issues und PRs.
+* **`read:org`** – Nur wenn du mit Organisations-Repositories arbeitest
+* **`read:user`** – Zum Lesen von Benutzerprofildaten
 
-Klicken Sie auf **"Generate token"** und kopieren Sie es sofort. GitHub zeigt es Ihnen nicht erneut an.
+Klicke auf **"Generate token"** und kopiere es sofort. GitHub zeigt es dir nicht erneut an.
 
-### Konfigurieren Sie die GitHub-Integrations-Umgebungsvariable
+### Konfiguriere die GitHub-Integrations-Umgebungsvariable
 
-Setzen Sie die Umgebungsvariable `GITHUB_TOKEN` mit Ihrem **GitHub Personal Access Token**:
+Setze die Umgebungsvariable `GITHUB_TOKEN` mit deinem **GitHub Personal Access Token**:
 
 **macOS/Linux:**
 ```bash
 export GITHUB_TOKEN="your_token_here"
 ```
 
-Um es dauerhaft zu machen, fügen Sie es zu Ihrer `~/.zshrc` oder `~/.bashrc` hinzu:
+Um es dauerhaft zu machen, füge es zu deiner `~/.zshrc` oder `~/.bashrc` hinzu:
 ```bash
 echo 'export GITHUB_TOKEN="your_token_here"' >> ~/.zshrc
 source ~/.zshrc
@@ -84,22 +84,22 @@ setx GITHUB_TOKEN "your_token_here"
 docker run -e GITHUB_TOKEN="your_token_here" ...
 ```
 
-### Überprüfen Sie die GitHub-Integration-Einrichtung
+### Überprüfe die GitHub-Integration-Einrichtung
 
-Versuchen Sie den "Get Repository" Warp mit einem öffentlichen Repo, um zu überprüfen, ob Ihre **GitHub-Integration** funktioniert:
+Versuche den "Get Repository" Warp mit einem öffentlichen Repo, um zu überprüfen, ob deine **GitHub-Integration** funktioniert:
 
 * Owner: `octocat`
 * Repository: `Hello-World`
 
-Wenn Sie Repository-Informationen mit Stars und Forks sehen, sind Sie fertig.
+Wenn du Repository-Informationen mit Stars und Forks siehst, bist du fertig.
 
 ## GitHub-Integrations-Funktionen und Aktionen
 
 ### GitHub-Issues erstellen
 
-Verwenden Sie den `github/create-issue` Warp, um ein neues **GitHub-Issue** in einem beliebigen Repository über die GitHub-Integration zu erstellen.
+Verwende den `github/create-issue` Warp, um ein neues **GitHub-Issue** in einem beliebigen Repository über die GitHub-Integration zu erstellen.
 
-Sie benötigen:
+Du benötigst:
 * Owner (Benutzername oder Organisation)
 * Repository-Name
 * Titel
@@ -107,7 +107,7 @@ Sie benötigen:
 * Labels (optional, kommagetrennt wie "bug,enhancement")
 * Assignees (optional, kommagetrennte Benutzernamen)
 
-Sie erhalten die Issue-Nummer, URL und die interne GitHub-ID zurück.
+Du erhältst die Issue-Nummer, URL und die interne GitHub-ID zurück.
 
 Hier ist ein Beispiel:
 ```
@@ -121,9 +121,9 @@ Assignees: developer1,developer2
 
 ### GitHub-Repository-Informationen abrufen
 
-Der `github/get-repository` Warp gibt Ihnen alle Details über ein **GitHub-Repository** über die Integration.
+Der `github/get-repository` Warp gibt dir alle Details über ein **GitHub-Repository** über die Integration.
 
-Geben Sie einfach den Owner und den Repository-Namen an. Sie erhalten Name, Beschreibung, Stars, Forks, Sprache und Clone-URLs zurück.
+Gib einfach den Owner und den Repository-Namen an. Du erhältst Name, Beschreibung, Stars, Forks, Sprache und Clone-URLs zurück.
 
 ```
 Owner: facebook
@@ -132,9 +132,9 @@ Repository: react
 
 ### GitHub-Issues auflisten
 
-Verwenden Sie `github/list-issues`, um **GitHub-Issues** in einem Repo über die Integration aufzulisten. Sie können nach Status (`open`, `closed` oder `all`), Labels, Assignee filtern und Ergebnisse begrenzen (max. 100, Standard: 30).
+Verwende `github/list-issues`, um **GitHub-Issues** in einem Repo über die Integration aufzulisten. Du kannst nach Status (`open`, `closed` oder `all`), Labels, Assignee filtern und Ergebnisse begrenzen (max. 100, Standard: 30).
 
-Sie erhalten ein Array von Issues und die Gesamtzahl zurück.
+Du erhältst ein Array von Issues und die Gesamtzahl zurück.
 
 ```
 Owner: myusername
@@ -147,7 +147,7 @@ Limit: 50
 
 ### Details eines bestimmten GitHub-Issues abrufen
 
-Der `github/get-issue` Warp holt alle Details für ein einzelnes **GitHub-Issue** - Titel, Body, Status, Labels, Assignees und Autor.
+Der `github/get-issue` Warp holt alle Details für ein einzelnes **GitHub-Issue** – Titel, Body, Status, Labels, Assignees und Autor.
 
 ```
 Owner: myusername
@@ -159,9 +159,9 @@ Issue Number: 42
 
 Der `github/create-pull-request` Warp erstellt einen neuen **GitHub-Pull-Request**, um Änderungen zwischen Branches über die Integration zu mergen.
 
-Sie benötigen den Owner, Repo, Titel, Head Branch (Quelle) und Base Branch (Ziel, normalerweise `main`). Für Cross-Repo-PRs verwenden Sie das Format `username:branch` für den Head Branch. Setzen Sie `Draft: true`, wenn Sie einen Draft-PR möchten.
+Du benötigst den Owner, Repo, Titel, Head Branch (Quelle) und Base Branch (Ziel, normalerweise `main`). Für Cross-Repo-PRs verwende das Format `username:branch` für den Head Branch. Setze `Draft: true`, wenn du einen Draft-PR möchtest.
 
-Sie erhalten die PR-Nummer, URL und den Status zurück.
+Du erhältst die PR-Nummer, URL und den Status zurück.
 
 ```
 Owner: myusername
@@ -175,9 +175,9 @@ Draft: false
 
 ### Kommentare zu GitHub-Issues und PRs hinzufügen
 
-Verwenden Sie `github/add-comment`, um einen Kommentar zu einem **GitHub-Issue oder Pull-Request** über die Integration hinzuzufügen. Der Kommentar-Body unterstützt Markdown.
+Verwende `github/add-comment`, um einen Kommentar zu einem **GitHub-Issue oder Pull-Request** über die Integration hinzuzufügen. Der Kommentar-Body unterstützt Markdown.
 
-Sie erhalten die Kommentar-ID und URL zurück.
+Du erhältst die Kommentar-ID und URL zurück.
 
 ```
 Owner: myusername
@@ -188,15 +188,15 @@ Comment Body: This has been fixed in the latest commit. Please test and close if
 
 ### GitHub-Repositories durchsuchen
 
-Der `github/search-repositories` Warp ermöglicht es Ihnen, **GitHub-Repositories** mit ihrer Suchsyntax über die Integration zu durchsuchen. Sie können nach Stars, Forks, help-wanted-issues oder aktualisiertem Datum sortieren und Ergebnisse begrenzen (max. 100).
+Der `github/search-repositories` Warp ermöglicht es dir, **GitHub-Repositories** mit ihrer Suchsyntax über die Integration zu durchsuchen. Du kannst nach Stars, Forks, help-wanted-issues oder aktualisiertem Datum sortieren und Ergebnisse begrenzen (max. 100).
 
-Sie erhalten ein Array von passenden Repositories und die Gesamtzahl zurück.
+Du erhältst ein Array von passenden Repositories und die Gesamtzahl zurück.
 
 Einige Suchabfrage-Beispiele:
-* `language:javascript stars:>100` - JavaScript-Repos mit 100+ Stars
-* `topic:machine-learning` - Repos mit dem Tag machine-learning
-* `user:facebook` - Alle Repos von Facebook
-* `react in:name` - Repos mit "react" im Namen
+* `language:javascript stars:>100` – JavaScript-Repos mit 100+ Stars
+* `topic:machine-learning` – Repos mit dem Tag machine-learning
+* `user:facebook` – Alle Repos von Facebook
+* `react in:name` – Repos mit "react" im Namen
 
 ```
 Query: language:typescript stars:>500
@@ -207,40 +207,40 @@ Limit: 50
 
 ## GitHub-Integrations-Authentifizierung
 
-Wir verwenden Personal Access Tokens (PATs) zur GitHub-Integrations-Authentifizierung. Es ist der einfachste Weg, sich mit der GitHub-API zu verbinden und Ihre Repositories zu verwalten.
+Wir verwenden Personal Access Tokens (PATs) zur GitHub-Integrations-Authentifizierung. Es ist der einfachste Weg, sich mit der GitHub-API zu verbinden und deine Repositories zu verwalten.
 
-### Welche Scopes Sie benötigen
+### Welche Scopes du benötigst
 
-Für volle Funktionalität benötigt Ihr Token den `repo` Scope. Dies ermöglicht es Ihnen, Issues zu erstellen, Pull Requests zu erstellen, Kommentare hinzuzufügen und auf private Repositories zuzugreifen.
+Für volle Funktionalität benötigt dein Token den `repo` Scope. Dies ermöglicht es dir, Issues zu erstellen, Pull Requests zu erstellen, Kommentare hinzuzufügen und auf private Repositories zuzugreifen.
 
-Sie möchten auch `read:org`, wenn Sie mit Organisations-Repositories arbeiten, und `read:user` für Benutzerprofil-Operationen.
+Du möchtest auch `read:org`, wenn du mit Organisations-Repositories arbeitest, und `read:user` für Benutzerprofil-Operationen.
 
 ### Sicherheitstipps
 
-Einige Dinge, die Sie beachten sollten:
+Einige Dinge, die du beachten solltest:
 
-* Setzen Sie Tokens auf Ablauf (90 Tage ist ein guter Standard)
-* Gewähren Sie nur die Scopes, die Sie tatsächlich benötigen
-* Rotieren Sie Tokens regelmäßig
-* Committen Sie niemals Tokens in die Versionskontrolle
-* Verwenden Sie Umgebungsvariablen oder Secret Manager in der Produktion
-* Für Org-Repos sollten Sie feingranulierte Tokens oder GitHub Apps in Betracht ziehen
+* Setze Tokens auf Ablauf (90 Tage ist ein guter Standard)
+* Gewähre nur die Scopes, die du tatsächlich benötigst
+* Rotiere Tokens regelmäßig
+* Committe niemals Tokens in die Versionskontrolle
+* Verwende Umgebungsvariablen oder Secret Manager in der Produktion
+* Für Org-Repos solltest du feingranulierte Tokens oder GitHub Apps in Betracht ziehen
 
 ### Rate Limits
 
-GitHub begrenzt authentifizierte Anfragen auf 5.000 pro Stunde. Nicht authentifizierte Anfragen sind auf 60 pro Stunde begrenzt. Sie sehen Rate-Limit-Informationen in den Response-Headern.
+GitHub begrenzt authentifizierte Anfragen auf 5.000 pro Stunde. Nicht authentifizierte Anfragen sind auf 60 pro Stunde begrenzt. Du siehst Rate-Limit-Informationen in den Response-Headern.
 
 ## Wie die GitHub-Integration funktioniert
 
-Alle GitHub-Integrations-Anfragen gehen an `https://api.github.com` mit Ihrem Token im Authorization-Header. Wir verwenden die GitHub REST API v3, daher folgt alles ihrem Standardformat.
+Alle GitHub-Integrations-Anfragen gehen an `https://api.github.com` mit deinem Token im Authorization-Header. Wir verwenden die GitHub REST API v3, daher folgt alles ihrem Standardformat.
 
-Rate-Limit-Informationen kommen in Response-Headern zurück - Sie sehen, wie viele Anfragen Sie noch haben und wann das Limit zurückgesetzt wird. Diese GitHub-Integration übernimmt die gesamte API-Kommunikation für Sie.
+Rate-Limit-Informationen kommen in Response-Headern zurück – du siehst, wie viele Anfragen du noch hast und wann das Limit zurückgesetzt wird. Diese GitHub-Integration übernimmt die gesamte API-Kommunikation für dich.
 
 ## GitHub-Integrations-Anwendungsfälle und Beispiele
 
 ### Automatische GitHub-Issue-Erstellung
 
-Erstellen Sie automatisch ein **GitHub-Issue**, wenn Ihre App einen Bug erkennt, mit der GitHub-Integration:
+Erstelle automatisch ein **GitHub-Issue**, wenn deine App einen Bug erkennt, mit der GitHub-Integration:
 
 ```
 Action: Create Issue
@@ -261,7 +261,7 @@ Assignees: backend-team
 
 ### GitHub-Repository-Statistiken überwachen
 
-Prüfen Sie, wie Ihr **GitHub-Repository** abschneidet, mit der Integration:
+Prüfe, wie dein **GitHub-Repository** abschneidet, mit der Integration:
 
 ```
 Action: Get Repository
@@ -269,11 +269,11 @@ Owner: myusername
 Repository: myproject
 ```
 
-Dann schauen Sie sich die Stars-, Forks- und Sprachstatistiken an.
+Dann schau dir die Stars-, Forks- und Sprachstatistiken an.
 
 ### GitHub-Issue-Triage-Workflow
 
-Filtern Sie **GitHub-Issues**, um zu finden, was Aufmerksamkeit benötigt, mit der GitHub-Integration:
+Filtere **GitHub-Issues**, um zu finden, was Aufmerksamkeit benötigt, mit der GitHub-Integration:
 
 ```
 Action: List Issues
@@ -286,7 +286,7 @@ Limit: 100
 
 ### Cross-Repository GitHub-Pull-Requests
 
-Erstellen Sie einen **GitHub-Pull-Request** von einem Fork mit dem Format `username:branch` über die Integration:
+Erstelle einen **GitHub-Pull-Request** von einem Fork mit dem Format `username:branch` über die Integration:
 
 ```
 Action: Create Pull Request
@@ -300,7 +300,7 @@ Base Branch: main
 
 ### Trending GitHub-Repositories finden
 
-Suchen Sie nach beliebten **GitHub-Repositories** mit der Integration:
+Suche nach beliebten **GitHub-Repositories** mit der Integration:
 
 ```
 Action: Search Repositories
@@ -314,32 +314,32 @@ Limit: 20
 
 ### "Bad credentials" Fehler
 
-Ihr Token funktioniert nicht. Überprüfen Sie, dass:
+Dein Token funktioniert nicht. Überprüfe, dass:
 * Die Umgebungsvariable `GITHUB_TOKEN` korrekt gesetzt ist
 * Das Token nicht abgelaufen ist
 * Das Token die erforderlichen Scopes hat
 
-Wenn alles andere fehlschlägt, generieren Sie das Token neu.
+Wenn alles andere fehlschlägt, generiere das Token neu.
 
 ### "Not Found" Fehler
 
-GitHub kann das Repository oder die Ressource nicht finden. Stellen Sie sicher, dass:
+GitHub kann das Repository oder die Ressource nicht finden. Stelle sicher, dass:
 * Der Owner und Repository-Name korrekt geschrieben sind
 * Das Repository tatsächlich existiert
-* Für private Repos Ihr Token den `repo` Scope hat
-* Sie Zugriff auf Organisations-Repositories haben, falls erforderlich
+* Für private Repos dein Token den `repo` Scope hat
+* Du Zugriff auf Organisations-Repositories hast, falls erforderlich
 
 ### "Resource not accessible by integration" Fehler
 
-Ihr Token hat nicht die richtigen Berechtigungen. Generieren Sie es mit den entsprechenden Scopes neu. Für Organisations-Repos sollten Sie auch Ihre Org-Einstellungen überprüfen.
+Dein Token hat nicht die richtigen Berechtigungen. Generiere es mit den entsprechenden Scopes neu. Für Organisations-Repos solltest du auch deine Org-Einstellungen überprüfen.
 
 ### Rate Limit überschritten
 
-Sie erreichen die Rate Limits von GitHub. Warten Sie auf das Reset (prüfen Sie den `X-RateLimit-Reset` Header) oder implementieren Sie Throttling in Ihrer App. Authentifizierte Anfragen erhalten 5.000 Anfragen/Stunde, was für die meisten Anwendungsfälle ausreichen sollte.
+Du erreichst die Rate Limits von GitHub. Warte auf das Reset (prüfe den `X-RateLimit-Reset` Header) oder implementiere Throttling in deiner App. Authentifizierte Anfragen erhalten 5.000 Anfragen/Stunde, was für die meisten Anwendungsfälle ausreichen sollte.
 
 ### "Validation Failed" Fehler
 
-Etwas stimmt mit Ihrer Eingabe nicht. Überprüfen Sie, dass:
+Etwas stimmt mit deiner Eingabe nicht. Überprüfe, dass:
 * Alle erforderlichen Felder ausgefüllt sind
 * Branch-Namen und Benutzernamen korrekt formatiert sind
 * Labels tatsächlich im Repository existieren
@@ -347,46 +347,46 @@ Etwas stimmt mit Ihrer Eingabe nicht. Überprüfen Sie, dass:
 
 ### Schnelle Debugging-Tipps
 
-* Testen Sie zuerst mit öffentlichen Repos (wie `octocat/Hello-World`), um Ihre Einrichtung zu überprüfen
-* Überprüfen Sie Ihre Token-Scopes nochmals
-* Stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind
-* Lesen Sie die Fehlermeldungen - sie sagen Ihnen normalerweise genau, was falsch ist
+* Teste zuerst mit öffentlichen Repos (wie `octocat/Hello-World`), um deine Einrichtung zu überprüfen
+* Überprüfe deine Token-Scopes nochmals
+* Stelle sicher, dass alle erforderlichen Felder ausgefüllt sind
+* Lies die Fehlermeldungen – sie sagen dir normalerweise genau, was falsch ist
 
 ## Best Practices
 
 ### Token-Verwaltung
 
-Verwenden Sie separate Tokens für Dev, Staging und Produktion. Rotieren Sie sie regelmäßig und speichern Sie sie sicher in Umgebungsvariablen oder Secret Managern. Feingranulierte Tokens sind großartig, wenn Sie sie verwenden können.
+Verwende separate Tokens für Dev, Staging und Produktion. Rotiere sie regelmäßig und speichere sie sicher in Umgebungsvariablen oder Secret Managern. Feingranulierte Tokens sind großartig, wenn du sie verwenden kannst.
 
 ### Fehlerbehandlung
 
-Prüfen Sie immer auf API-Fehler in Antworten. Implementieren Sie Retry-Logik für Rate-Limit-Fehler und protokollieren Sie alles für das Debugging. Ihre Benutzer werden Ihnen für klare Fehlermeldungen danken.
+Prüfe immer auf API-Fehler in Antworten. Implementiere Retry-Logik für Rate-Limit-Fehler und protokolliere alles für das Debugging. Deine Benutzer werden dir für klare Fehlermeldungen danken.
 
 ### Rate Limiting
 
-Behalten Sie Rate-Limit-Header im Auge. Verwenden Sie exponentielles Backoff für Retries, cachen Sie Antworten, wenn möglich, und batchieren Sie Operationen, wenn möglich.
+Behalte Rate-Limit-Header im Auge. Verwende exponentielles Backoff für Retries, cache Antworten, wenn möglich, und batchiere Operationen, wenn möglich.
 
 ### Sicherheit
 
-Committen Sie niemals Tokens in die Versionskontrolle. Verwenden Sie `.gitignore` für Umgebungsdateien, beschränken Sie Scopes auf das Minimum, das Sie benötigen, und auditieren Sie die Token-Nutzung regelmäßig.
+Committe niemals Tokens in die Versionskontrolle. Verwende `.gitignore` für Umgebungsdateien, beschränke Scopes auf das Minimum, das du benötigst, und auditiere die Token-Nutzung regelmäßig.
 
 ### Repository-Verwaltung
 
-Halten Sie die Benennung konsistent, dokumentieren Sie Ihre Repo-Struktur, verwenden Sie Labels effektiv und richten Sie Branch-Schutzregeln ein.
+Halte die Benennung konsistent, dokumentiere deine Repo-Struktur, verwende Labels effektiv und richte Branch-Schutzregeln ein.
 
 ## Erweiterte Nutzung
 
 ### Cross-Repo Pull Requests
 
-Für PRs von Forks oder anderen Repos verwenden Sie das Format `username:branch-name` für den Head Branch.
+Für PRs von Forks oder anderen Repos verwende das Format `username:branch-name` für den Head Branch.
 
 ### Markdown-Unterstützung
 
-Alle Textfelder unterstützen GitHub Flavored Markdown - Überschriften, Listen, Code-Blöcke, Task-Listen, Tabellen, Mentions (@username) und Issue/PR-Referenzen (#123).
+Alle Textfelder unterstützen GitHub Flavored Markdown – Überschriften, Listen, Code-Blöcke, Task-Listen, Tabellen, Mentions (@username) und Issue/PR-Referenzen (#123).
 
 ### Webhooks
 
-Während nicht direkt unterstützt, können Sie GitHub-Webhooks mit JoAi kombinieren, um automatisch Issues zu erstellen, Issues von externen Triggern zu aktualisieren oder Daten zwischen Systemen zu synchronisieren.
+Während nicht direkt unterstützt, kannst du GitHub-Webhooks mit JoAi kombinieren, um automatisch Issues zu erstellen, Issues von externen Triggern zu aktualisieren oder Daten zwischen Systemen zu synchronisieren.
 
 ## Ressourcen
 
@@ -401,8 +401,8 @@ Während nicht direkt unterstützt, können Sie GitHub-Webhooks mit JoAi kombini
 
 ## Fazit
 
-Sie sind jetzt bereit, die GitHub-Integration in JoAi zu verwenden! Diese GitHub-Integration ermöglicht es Ihnen, Ihren GitHub-Workflow zu automatisieren, Repositories zu verwalten und Ihren Entwicklungsprozess zu optimieren. Beginnen Sie mit einfachen Operationen wie dem Erstellen von Issues, dann erkunden Sie erweiterte Funktionen wie automatisierte Pull Requests und Repository-Suchen.
+Du bist jetzt bereit, die GitHub-Integration in JoAi zu verwenden! Diese GitHub-Integration ermöglicht es dir, deinen GitHub-Workflow zu automatisieren, Repositories zu verwalten und deinen Entwicklungsprozess zu optimieren. Beginne mit einfachen Operationen wie dem Erstellen von Issues, dann erkunde erweiterte Funktionen wie automatisierte Pull Requests und Repository-Suchen.
 
-Denken Sie daran, Ihr Personal Access Token sicher zu halten, es regelmäßig zu rotieren und Ihre API-Rate-Limits zu überwachen. Für erweiterte Automatisierung sollten Sie diese GitHub-Integration mit Webhooks und anderen JoAi-Funktionen kombinieren. Erkunden Sie andere JoAi-Integrationen, um umfassende Automatisierungs-Workflows zu erstellen.
+Denke daran, dein Personal Access Token sicher zu halten, es regelmäßig zu rotieren und deine API-Rate-Limits zu überwachen. Für erweiterte Automatisierung solltest du diese GitHub-Integration mit Webhooks und anderen JoAi-Funktionen kombinieren. Erkunde andere JoAi-Integrationen, um umfassende Automatisierungs-Workflows zu erstellen.
 
 **Hinweis**: Diese GitHub-Integration verwendet die GitHub REST API v3. Wir erwägen, GraphQL API v4-Unterstützung in Zukunft hinzuzufügen.

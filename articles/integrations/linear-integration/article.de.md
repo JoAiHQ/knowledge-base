@@ -1,6 +1,6 @@
 ---
 title: 'Linear Integration Guide für JoAi'
-description: 'Richten Sie die Linear-Integration mit JoAi in 5 Minuten ein. Erstellen Sie Issues, verwalten Sie Teams, aktualisieren Sie States und automatisieren Sie Projekt-Workflows mit Linear GraphQL API. Komplette Anleitung.'
+description: 'Richte die Linear-Integration mit JoAi in 5 Minuten ein. Erstelle Issues, verwalte Teams, aktualisiere States und automatisiere Projekt-Workflows mit der Linear GraphQL API. Komplette Anleitung.'
 category: 'integrations'
 tags: ['linear', 'integration', 'api', 'projektmanagement', 'graphql']
 author: 'JoAi Team'
@@ -15,51 +15,51 @@ keywords:
 relatedArticles: []
 faqs:
   - question: 'Wie lange dauert die Einrichtung der Linear-Integration?'
-    answer: 'Die Einrichtung dauert etwa 5 Minuten. Sie müssen einen Linear API Key erstellen und ihn als Umgebungsvariable setzen.'
+    answer: 'Die Einrichtung dauert etwa 5 Minuten. Erstelle einen Linear API Key und setze ihn als Umgebungsvariable.'
   - question: 'Welche Berechtigungen benötigt die Linear-Integration?'
-    answer: 'Die Integration benötigt einen Linear API Key. Ihr API Key erbt die Berechtigungen Ihres Linear-Benutzerkontos - Sie können auf Teams zugreifen, in denen Sie Mitglied sind, und auf Issues, die Sie anzeigen dürfen.'
+    answer: 'Die Integration benötigt einen Linear API Key. Dein API Key erbt die Berechtigungen deines Linear-Benutzerkontos – du kannst auf Teams zugreifen, in denen du Mitglied bist, und auf Issues, die du anzeigen darfst.'
   - question: 'Kann ich diese Integration mit allen Linear-Teams verwenden?'
-    answer: 'Ja, Sie können auf alle Teams zugreifen, in denen Sie Mitglied sind. Wenn Sie Administrator sind, können Sie alle Teams und Issues in Ihrem Workspace verwalten.'
+    answer: 'Ja, du kannst auf alle Teams zugreifen, in denen du Mitglied bist. Wenn du Administrator bist, kannst du alle Teams und Issues in deinem Workspace verwalten.'
   - question: 'Wie hoch ist das Rate Limit für Linear API-Anfragen?'
     answer: 'Authentifizierte Anfragen haben ein Rate Limit von 10.000 Anfragen pro Stunde. Die Integration behandelt Rate Limiting automatisch.'
   - question: 'Wie finde ich Team-IDs und Issue-IDs?'
-    answer: 'Verwenden Sie den "List Teams" Warp, um Team-IDs zu finden, und "List Issues", um Issue-IDs zu finden. Die Antwort enthält sowohl IDs als auch menschenlesbare Bezeichner.'
-llmAnswer: 'Richten Sie die Linear-Integration in JoAi ein, indem Sie einen API Key aus Linear Settings > API erstellen und ihn als LINEAR_API_KEY Umgebungsvariable setzen. Dies ermöglicht das Erstellen von Issues, das Verwalten von Teams, das Aktualisieren von States und das Hinzufügen von Kommentaren über die Linear GraphQL API.'
+    answer: 'Verwende den "List Teams" Warp, um Team-IDs zu finden, und "List Issues", um Issue-IDs zu finden. Die Antwort enthält sowohl IDs als auch menschenlesbare Bezeichner.'
+llmAnswer: 'Richte die Linear-Integration in JoAi ein, indem du einen API Key aus Linear Settings > API erstellst und ihn als LINEAR_API_KEY Umgebungsvariable setzt. Dies ermöglicht das Erstellen von Issues, das Verwalten von Teams, das Aktualisieren von States und das Hinzufügen von Kommentaren über die Linear GraphQL API.'
 ---
 
-Die Linear-Integration für JoAi ermöglicht es Ihnen, Ihre Linear-Issues, Teams und Projekte direkt aus Ihrem Arbeitsbereich zu verwalten. Diese Linear-Integration nutzt die Linear GraphQL API, damit Sie Ihren Projektmanagement-Workflow automatisieren können, ohne JoAi zu verlassen. Die Einrichtung der Linear-Integration dauert nur 5 Minuten und eröffnet leistungsstarke Automatisierungsmöglichkeiten.
+Die Linear-Integration für JoAi ermöglicht es dir, deine Linear-Issues, Teams und Projekte direkt aus deinem Arbeitsbereich zu verwalten. Diese Linear-Integration nutzt die Linear GraphQL API, damit du deinen Projektmanagement-Workflow automatisieren kannst, ohne JoAi zu verlassen. Die Einrichtung der Linear-Integration dauert nur 5 Minuten und eröffnet leistungsstarke Automatisierungsmöglichkeiten.
 
-## Was Sie lernen werden
+## Was du lernen wirst
 
-* Wie Sie die Linear-Integration mit API Keys einrichten
+* Wie du die Linear-Integration mit API Keys einrichtest
 * Erstellen und Verwalten von Linear-Issues und Teams
 * Aktualisieren von Issue-States und Prioritäten
 * Hinzufügen von Kommentaren zur Fortschrittsverfolgung
 * Fehlerbehebung bei häufigen Linear-Integrationsfehlern
 * Best Practices für Linear-API-Authentifizierung und Sicherheit
 
-## Wie Sie die Linear-Integration einrichten
+## Wie du die Linear-Integration einrichtest
 
-Sie benötigen einen Linear API Key, um diese Linear-Integration zu verwenden. So richten Sie ihn in nur wenigen Minuten ein.
+Du benötigst einen Linear API Key, um diese Linear-Integration zu verwenden. So richtest du ihn in nur wenigen Minuten ein.
 
-### Erstellen Sie Ihren Linear API Key
+### Erstelle deinen Linear API Key
 
-Melden Sie sich in Ihrem Linear-Konto unter [linear.app](https://linear.app) an und navigieren Sie zu **Settings** → **API** (oder gehen Sie direkt zu [https://linear.app/settings/api](https://linear.app/settings/api)).
+Melde dich in deinem Linear-Konto unter [linear.app](https://linear.app) an und navigiere zu **Settings** → **API** (oder gehe direkt zu [https://linear.app/settings/api](https://linear.app/settings/api)).
 
-Klicken Sie auf **"Create API Key"** und geben Sie ihm einen Namen wie "JoAi Integration".
+Klicke auf **"Create API Key"** und gib ihm einen Namen wie "JoAi Integration".
 
-**Wichtig**: Kopieren Sie den API Key sofort - Linear zeigt ihn Ihnen nicht erneut an!
+**Wichtig**: Kopiere den API Key sofort – Linear zeigt ihn dir nicht erneut an!
 
-### Konfigurieren Sie die Linear-Integrations-Umgebungsvariable
+### Konfiguriere die Linear-Integrations-Umgebungsvariable
 
-Setzen Sie die Umgebungsvariable `LINEAR_API_KEY` mit Ihrem **Linear API Key**:
+Setze die Umgebungsvariable `LINEAR_API_KEY` mit deinem **Linear API Key**:
 
 **macOS/Linux:**
 ```bash
 export LINEAR_API_KEY="your_api_key_here"
 ```
 
-Um es dauerhaft zu machen, fügen Sie es zu Ihrer `~/.zshrc` oder `~/.bashrc` hinzu:
+Um es dauerhaft zu machen, füge es zu deiner `~/.zshrc` oder `~/.bashrc` hinzu:
 ```bash
 echo 'export LINEAR_API_KEY="your_api_key_here"' >> ~/.zshrc
 source ~/.zshrc
@@ -80,34 +80,34 @@ setx LINEAR_API_KEY "your_api_key_here"
 docker run -e LINEAR_API_KEY="your_api_key_here" ...
 ```
 
-### Überprüfen Sie die Linear-Integration-Einrichtung
+### Überprüfe die Linear-Integration-Einrichtung
 
-Versuchen Sie den "List Teams" Warp, um zu überprüfen, ob Ihre **Linear-Integration** funktioniert. Wenn erfolgreich, erhalten Sie eine Liste aller Teams in Ihrem Linear-Workspace.
+Versuche den "List Teams" Warp, um zu überprüfen, ob deine **Linear-Integration** funktioniert. Wenn erfolgreich, erhältst du eine Liste aller Teams in deinem Linear-Workspace.
 
 ## Linear-Integrations-Funktionen und Aktionen
 
 ### Linear-Teams auflisten
 
-Verwenden Sie den `linear/list-teams` Warp, um alle Teams in Ihrem Linear-Workspace abzurufen. Dies ist normalerweise der erste Schritt, um Team-IDs zu finden, die für andere Operationen benötigt werden.
+Verwende den `linear/list-teams` Warp, um alle Teams in deinem Linear-Workspace abzurufen. Dies ist normalerweise der erste Schritt, um Team-IDs zu finden, die für andere Operationen benötigt werden.
 
-Sie erhalten zurück:
+Du erhältst zurück:
 * `TEAMS`: Array von Team-Objekten mit ID, Name, Key und Beschreibung
 * `COUNT`: Anzahl der gefundenen Teams
 
-Verwenden Sie dies, um Team-IDs zu finden, bevor Sie Issues erstellen oder auflisten.
+Verwende dies, um Team-IDs zu finden, bevor du Issues erstellst oder auflistest.
 
 ### Linear-Issues erstellen
 
-Verwenden Sie den `linear/create-issue` Warp, um ein neues **Linear-Issue** in einem beliebigen Team über die Linear-Integration zu erstellen.
+Verwende den `linear/create-issue` Warp, um ein neues **Linear-Issue** in einem beliebigen Team über die Linear-Integration zu erstellen.
 
-Sie benötigen:
-* Team ID (erforderlich) - Holen Sie sich diese von "List Teams"
+Du benötigst:
+* Team ID (erforderlich) – Hole dir diese von "List Teams"
 * Titel (erforderlich)
 * Beschreibung (optional, unterstützt Markdown)
 * Assignee ID (optional)
 * Priorität (optional): `0` = Keine Priorität, `1` = Dringend, `2` = Hoch, `3` = Mittel, `4` = Niedrig
 
-Sie erhalten die Issue-ID, Titel, URL, Bezeichner (z.B. "ENG-123") und Erfolgsstatus zurück.
+Du erhältst die Issue-ID, Titel, URL, Bezeichner (z.B. "ENG-123") und Erfolgsstatus zurück.
 
 Hier ist ein Beispiel:
 ```
@@ -119,9 +119,9 @@ Priority: 2
 
 ### Linear-Issues auflisten
 
-Verwenden Sie `linear/list-issues`, um **Linear-Issues** in einem Team über die Integration aufzulisten. Sie können nach Assignee, State filtern und Ergebnisse begrenzen (max. 50, Standard: 20).
+Verwende `linear/list-issues`, um **Linear-Issues** in einem Team über die Integration aufzulisten. Du kannst nach Assignee, State filtern und Ergebnisse begrenzen (max. 50, Standard: 20).
 
-Sie erhalten ein Array von Issues mit ID, Bezeichner, Titel, Beschreibung, State, Assignee, Priorität und Erstellungsdatum zurück.
+Du erhältst ein Array von Issues mit ID, Bezeichner, Titel, Beschreibung, State, Assignee, Priorität und Erstellungsdatum zurück.
 
 ```
 Team ID: abc123def456
@@ -131,7 +131,7 @@ Limit: 50
 
 ### Details eines bestimmten Linear-Issues abrufen
 
-Der `linear/get-issue` Warp holt alle Details für ein einzelnes **Linear-Issue** - ID, Bezeichner, Titel, Beschreibung, State, Assignee, Priorität, URL und Erstellungsdatum.
+Der `linear/get-issue` Warp holt alle Details für ein einzelnes **Linear-Issue** – ID, Bezeichner, Titel, Beschreibung, State, Assignee, Priorität, URL und Erstellungsdatum.
 
 ```
 Issue ID: xyz789ghi012
@@ -139,11 +139,11 @@ Issue ID: xyz789ghi012
 
 ### Linear-Issues aktualisieren
 
-Der `linear/update-issue` Warp ermöglicht es Ihnen, ein bestehendes **Linear-Issue** über die Integration zu aktualisieren. Sie können Titel, Beschreibung, State, Assignee oder Priorität ändern.
+Der `linear/update-issue` Warp ermöglicht es dir, ein bestehendes **Linear-Issue** über die Integration zu aktualisieren. Du kannst Titel, Beschreibung, State, Assignee oder Priorität ändern.
 
-Sie benötigen die Issue-ID und alle Felder, die Sie aktualisieren möchten (lassen Sie Felder leer, um aktuelle Werte beizubehalten).
+Du benötigst die Issue-ID und alle Felder, die du aktualisieren möchtest (lasse Felder leer, um aktuelle Werte beizubehalten).
 
-Sie erhalten die aktualisierten Issue-Details und den Erfolgsstatus zurück.
+Du erhältst die aktualisierten Issue-Details und den Erfolgsstatus zurück.
 
 ```
 Issue ID: xyz789ghi012
@@ -153,9 +153,9 @@ Priority: 1
 
 ### Kommentare zu Linear-Issues hinzufügen
 
-Verwenden Sie `linear/add-comment`, um einen Kommentar zu einem **Linear-Issue** über die Integration hinzuzufügen. Der Kommentar-Body unterstützt Markdown.
+Verwende `linear/add-comment`, um einen Kommentar zu einem **Linear-Issue** über die Integration hinzuzufügen. Der Kommentar-Body unterstützt Markdown.
 
-Sie erhalten die Kommentar-ID, Body, Autor, Erstellungsdatum und Erfolgsstatus zurück.
+Du erhältst die Kommentar-ID, Body, Autor, Erstellungsdatum und Erfolgsstatus zurück.
 
 ```
 Issue ID: xyz789ghi012
@@ -164,40 +164,40 @@ Comment Body: This has been fixed in the latest commit. Please test and close if
 
 ## Linear-Integrations-Authentifizierung
 
-Wir verwenden API-Key-Authentifizierung für die Linear-Integration. Ihr API Key bietet vollen Zugriff auf Ihren Linear-Workspace basierend auf Ihren Benutzerberechtigungen.
+Wir verwenden API-Key-Authentifizierung für die Linear-Integration. Dein API Key bietet vollen Zugriff auf deinen Linear-Workspace basierend auf deinen Benutzerberechtigungen.
 
-### Welche Berechtigungen Sie benötigen
+### Welche Berechtigungen du benötigst
 
-Ihr API Key erbt die Berechtigungen Ihres Linear-Benutzerkontos:
-* **Voller Zugriff**: Wenn Sie Administrator sind, können Sie alle Teams und Issues verwalten
-* **Team-Zugriff**: Sie können nur auf Teams zugreifen, in denen Sie Mitglied sind
-* **Issue-Zugriff**: Sie können nur auf Issues zugreifen, die Sie anzeigen dürfen
+Dein API Key erbt die Berechtigungen deines Linear-Benutzerkontos:
+* **Voller Zugriff**: Wenn du Administrator bist, kannst du alle Teams und Issues verwalten
+* **Team-Zugriff**: Du kannst nur auf Teams zugreifen, in denen du Mitglied bist
+* **Issue-Zugriff**: Du kannst nur auf Issues zugreifen, die du anzeigen darfst
 
 ### Sicherheitstipps
 
-Einige Dinge, die Sie beachten sollten:
+Einige Dinge, die du beachten solltest:
 
-* Rotieren Sie API Keys regelmäßig
-* Verwenden Sie API Keys nur aus sicheren Umgebungen
-* Committen Sie niemals API Keys in die Versionskontrolle
-* Verwenden Sie Umgebungsvariablen oder Secret Manager in der Produktion
-* Widerrufen Sie Keys sofort, wenn sie kompromittiert wurden
+* Rotiere API Keys regelmäßig
+* Verwende API Keys nur aus sicheren Umgebungen
+* Committe niemals API Keys in die Versionskontrolle
+* Verwende Umgebungsvariablen oder Secret Manager in der Produktion
+* Widerrufe Keys sofort, wenn sie kompromittiert wurden
 
 ### Rate Limits
 
-Linear begrenzt authentifizierte Anfragen auf 10.000 pro Stunde. Sie sehen Rate-Limit-Informationen in den Response-Headern. Die Linear-Integration behandelt Rate Limiting automatisch.
+Linear begrenzt authentifizierte Anfragen auf 10.000 pro Stunde. Du siehst Rate-Limit-Informationen in den Response-Headern. Die Linear-Integration behandelt Rate Limiting automatisch.
 
 ## Wie die Linear-Integration funktioniert
 
-Alle Linear-Integrations-Anfragen gehen an `https://api.linear.app/graphql` mit Ihrem API Key im Authorization-Header. Wir verwenden die Linear GraphQL API, daher folgt alles ihrem Standardformat.
+Alle Linear-Integrations-Anfragen gehen an `https://api.linear.app/graphql` mit deinem API Key im Authorization-Header. Wir verwenden die Linear GraphQL API, daher folgt alles ihrem Standardformat.
 
-GraphQL-Antworten enthalten Daten und eventuelle Fehler. Diese Linear-Integration übernimmt die gesamte API-Kommunikation für Sie.
+GraphQL-Antworten enthalten Daten und eventuelle Fehler. Diese Linear-Integration übernimmt die gesamte API-Kommunikation für dich.
 
 ## Linear-Integrations-Anwendungsfälle und Beispiele
 
 ### Automatische Bug-Meldung
 
-Erstellen Sie automatisch ein **Linear-Issue**, wenn Ihre App einen Bug erkennt, mit der Linear-Integration:
+Erstelle automatisch ein **Linear-Issue**, wenn deine App einen Bug erkennt, mit der Linear-Integration:
 
 ```
 Action: Create Issue
@@ -216,7 +216,7 @@ Priority: 2 (High)
 
 ### Linear-Issue-Triage-Workflow
 
-Filtern Sie **Linear-Issues**, um zu finden, was Aufmerksamkeit benötigt, mit der Linear-Integration:
+Filtere **Linear-Issues**, um zu finden, was Aufmerksamkeit benötigt, mit der Linear-Integration:
 
 ```
 Step 1: List Issues
@@ -234,7 +234,7 @@ Assignee ID: [Ihre Benutzer-ID]
 
 ### Tägliche Standup-Automatisierung
 
-Listen Sie alle gestarteten Issues für ein Team auf:
+Liste alle gestarteten Issues für ein Team auf:
 
 ```
 Action: List Issues
@@ -245,7 +245,7 @@ Limit: 50
 
 ### Issue-State-Verwaltung
 
-Bewegen Sie ein Issue durch Workflow-States:
+Bewege ein Issue durch Workflow-States:
 
 ```
 Action: Update Issue
@@ -260,7 +260,7 @@ State ID: completed
 
 ### Fortschrittsverfolgung mit Kommentaren
 
-Fügen Sie Kommentare hinzu, um den Fortschritt zu verfolgen:
+Füge Kommentare hinzu, um den Fortschritt zu verfolgen:
 
 ```
 Action: Add Comment
@@ -279,23 +279,23 @@ ETA: Tomorrow
 
 ### Team-IDs
 
-Verwenden Sie den **List Teams** Warp, um Team-IDs zu finden. Die Antwort enthält:
-* `id`: Verwenden Sie dies für Team-Operationen
+Verwende den **List Teams** Warp, um Team-IDs zu finden. Die Antwort enthält:
+* `id`: Verwende dies für Team-Operationen
 * `name`: Team-Name zur Referenz
 * `key`: Team-Key (kurzer Bezeichner)
 
 ### Issue-IDs
 
-Verwenden Sie den **List Issues** Warp, um Issue-IDs zu finden. Die Antwort enthält:
-* `id`: Verwenden Sie dies für Issue-Operationen
+Verwende den **List Issues** Warp, um Issue-IDs zu finden. Die Antwort enthält:
+* `id`: Verwende dies für Issue-Operationen
 * `identifier`: Menschenlesbarer Bezeichner (z.B. "ENG-123")
 
 ### Benutzer-/Assignee-IDs
 
 Um Benutzer-IDs für Zuweisungen zu finden:
-1. Verwenden Sie **Get Issue** für ein bestehendes Issue
-2. Überprüfen Sie das `assignee.id` Feld in der Antwort
-3. Oder überprüfen Sie die Benutzer-URLs in der Linear-Weboberfläche
+1. Verwende **Get Issue** für ein bestehendes Issue
+2. Überprüfe das `assignee.id` Feld in der Antwort
+3. Oder überprüfe die Benutzer-URLs in der Linear-Weboberfläche
 
 ### State-IDs
 
@@ -306,76 +306,76 @@ Linear-States sind typischerweise:
 * `completed`: Erledigt
 * `canceled`: Abgebrochen
 
-Verwenden Sie **Get Issue**, um die aktuelle State-ID zu sehen, oder überprüfen Sie die Linear-API-Dokumentation für State-IDs in Ihrem Workspace.
+Verwende **Get Issue**, um die aktuelle State-ID zu sehen, oder überprüfe die Linear-API-Dokumentation für State-IDs in deinem Workspace.
 
 ## Fehlerbehebung bei Linear-Integrations-Problemen
 
 ### "Unauthorized" Fehler
 
-Ihr API Key funktioniert nicht. Überprüfen Sie, dass:
+Dein API Key funktioniert nicht. Überprüfe, dass:
 * Die Umgebungsvariable `LINEAR_API_KEY` korrekt gesetzt ist
 * Der API Key nicht widerrufen wurde
 * Der API Key gültig und nicht abgelaufen ist
 
-Wenn alles andere fehlschlägt, generieren Sie den API Key neu.
+Wenn alles andere fehlschlägt, generiere den API Key neu.
 
 ### "Team not found" Fehler
 
-Linear kann das Team nicht finden. Stellen Sie sicher, dass:
-* Die Team-ID korrekt ist (verwenden Sie "List Teams" zur Überprüfung)
-* Sie Mitglied des Teams sind
-* Sie die Team-ID verwenden (nicht den Team-Key)
+Linear kann das Team nicht finden. Stelle sicher, dass:
+* Die Team-ID korrekt ist (verwende "List Teams" zur Überprüfung)
+* Du Mitglied des Teams bist
+* Du die Team-ID verwendest (nicht den Team-Key)
 
 ### "Issue not found" Fehler
 
-Linear kann das Issue nicht finden. Überprüfen Sie, dass:
-* Die Issue-ID korrekt ist (verwenden Sie "List Issues" zur Überprüfung)
-* Sie Berechtigung zum Anzeigen des Issues haben
-* Sie die Issue-ID verwenden (nicht den Bezeichner wie "ENG-123")
+Linear kann das Issue nicht finden. Überprüfe, dass:
+* Die Issue-ID korrekt ist (verwende "List Issues" zur Überprüfung)
+* Du Berechtigung zum Anzeigen des Issues hast
+* Du die Issue-ID verwendest (nicht den Bezeichner wie "ENG-123")
 
 ### "Invalid state" Fehler
 
-Die State-ID ist ungültig. Überprüfen Sie, dass:
-* Sie eine gültige State-ID aus Ihrem Workspace verwenden
-* Der State in Ihrem Linear-Workflow existiert
-* Sie "Get Issue" verwenden, um gültige State-IDs zu sehen
+Die State-ID ist ungültig. Überprüfe, dass:
+* Du eine gültige State-ID aus deinem Workspace verwendest
+* Der State in deinem Linear-Workflow existiert
+* Du "Get Issue" verwendest, um gültige State-IDs zu sehen
 
 ### Rate Limit überschritten
 
-Sie erreichen die Rate Limits von Linear. Warten Sie auf das Reset oder implementieren Sie Throttling in Ihrer App. Authentifizierte Anfragen erhalten 10.000 Anfragen/Stunde, was für die meisten Anwendungsfälle ausreichen sollte.
+Du erreichst die Rate Limits von Linear. Warte auf das Reset oder implementiere Throttling in deiner App. Authentifizierte Anfragen erhalten 10.000 Anfragen/Stunde, was für die meisten Anwendungsfälle ausreichen sollte.
 
 ### Schnelle Debugging-Tipps
 
-* Beginnen Sie mit "List Teams", um zu überprüfen, ob Ihre Einrichtung funktioniert
-* Verwenden Sie List-Operationen, um korrekte IDs zu finden
-* Überprüfen Sie, dass Sie Zugriff auf Teams/Issues haben
-* Lesen Sie die Fehlermeldungen - sie sagen Ihnen normalerweise genau, was falsch ist
+* Beginne mit "List Teams", um zu überprüfen, ob deine Einrichtung funktioniert
+* Verwende List-Operationen, um korrekte IDs zu finden
+* Überprüfe, dass du Zugriff auf Teams/Issues hast
+* Lies die Fehlermeldungen – sie sagen dir normalerweise genau, was falsch ist
 
 ## Best Practices
 
 ### ID-Verwaltung
 
-Verwenden Sie immer zuerst "List Teams", um Team-IDs zu erhalten. Speichern Sie Team-IDs zur Wiederverwendung. Verwenden Sie Issue-Bezeichner (wie "ENG-123") für menschliche Referenz, aber verwenden Sie IDs für API-Aufrufe.
+Verwende immer zuerst "List Teams", um Team-IDs zu erhalten. Speichere Team-IDs zur Wiederverwendung. Verwende Issue-Bezeichner (wie "ENG-123") für menschliche Referenz, aber verwende IDs für API-Aufrufe.
 
 ### State-Verwaltung
 
-Verstehen Sie die Workflow-States Ihres Workspaces. Verwenden Sie konsistente State-Übergänge. Dokumentieren Sie State-Änderungen in Kommentaren.
+Verstehe die Workflow-States deines Workspaces. Verwende konsistente State-Übergänge. Dokumentiere State-Änderungen in Kommentaren.
 
 ### Fehlerbehandlung
 
-Prüfen Sie immer auf GraphQL-Fehler in Antworten. Implementieren Sie Retry-Logik für Rate-Limit-Fehler und protokollieren Sie alles für das Debugging. Ihre Benutzer werden Ihnen für klare Fehlermeldungen danken.
+Prüfe immer auf GraphQL-Fehler in Antworten. Implementiere Retry-Logik für Rate-Limit-Fehler und protokolliere alles für das Debugging. Deine Benutzer werden dir für klare Fehlermeldungen danken.
 
 ### Rate Limiting
 
-Behalten Sie Rate-Limit-Header im Auge. Verwenden Sie exponentielles Backoff für Retries, cachen Sie Antworten, wenn möglich, und batchieren Sie Operationen, wenn möglich.
+Behalte Rate-Limit-Header im Auge. Verwende exponentielles Backoff für Retries, cache Antworten, wenn möglich, und batchiere Operationen, wenn möglich.
 
 ### Sicherheit
 
-Committen Sie niemals API Keys in die Versionskontrolle. Verwenden Sie `.gitignore` für Umgebungsdateien, rotieren Sie API Keys regelmäßig und auditieren Sie die Key-Nutzung regelmäßig.
+Committe niemals API Keys in die Versionskontrolle. Verwende `.gitignore` für Umgebungsdateien, rotiere API Keys regelmäßig und auditiere die Key-Nutzung regelmäßig.
 
 ### Issue-Verwaltung
 
-Verwenden Sie beschreibende Titel. Fügen Sie detaillierte Beschreibungen mit Markdown hinzu. Setzen Sie angemessene Prioritäten. Weisen Sie Issues prompt zu. Fügen Sie Kommentare für Fortschritts-Updates hinzu.
+Verwende beschreibende Titel. Füge detaillierte Beschreibungen mit Markdown hinzu. Setze angemessene Prioritäten. Weise Issues prompt zu. Füge Kommentare für Fortschritts-Updates hinzu.
 
 ## Erweiterte Nutzung
 
@@ -385,22 +385,22 @@ Alle Warps verwenden GraphQL-Variablen für sichere Parameterinjektion. Variable
 
 ### Markdown-Unterstützung
 
-Linear unterstützt GitHub Flavored Markdown in Issue-Beschreibungen, Kommentaren und allen Textfeldern. Sie können Überschriften, Listen, Code-Blöcke, Task-Listen, Tabellen, Mentions (@username) und Issue-Referenzen (#123) verwenden.
+Linear unterstützt GitHub Flavored Markdown in Issue-Beschreibungen, Kommentaren und allen Textfeldern. Du kannst Überschriften, Listen, Code-Blöcke, Task-Listen, Tabellen, Mentions (@username) und Issue-Referenzen (#123) verwenden.
 
 ### Workflow-Automatisierung
 
-Kombinieren Sie mehrere Warps für Automatisierung:
-1. **List Issues** → Finden Sie Issues, die Aufmerksamkeit benötigen
-2. **Get Issue** → Holen Sie Details
-3. **Update Issue** → Ändern Sie State/Assignee
-4. **Add Comment** → Protokollieren Sie die Änderung
+Kombiniere mehrere Warps für Automatisierung:
+1. **List Issues** → Finde Issues, die Aufmerksamkeit benötigen
+2. **Get Issue** → Hole Details
+3. **Update Issue** → Ändere State/Assignee
+4. **Add Comment** → Protokolliere die Änderung
 
 ### Integrations-Muster
 
-* **CI/CD-Integration**: Erstellen Sie Issues aus Build-Fehlern
-* **Monitoring-Integration**: Erstellen Sie Issues aus Alerts
-* **Support-Integration**: Erstellen Sie Issues aus Support-Tickets
-* **Code Review**: Aktualisieren Sie Issues, wenn PRs gemerged werden
+* **CI/CD-Integration**: Erstelle Issues aus Build-Fehlern
+* **Monitoring-Integration**: Erstelle Issues aus Alerts
+* **Support-Integration**: Erstelle Issues aus Support-Tickets
+* **Code Review**: Aktualisiere Issues, wenn PRs gemerged werden
 
 ## Ressourcen
 
@@ -415,8 +415,8 @@ Kombinieren Sie mehrere Warps für Automatisierung:
 
 ## Fazit
 
-Sie sind jetzt bereit, die Linear-Integration in JoAi zu verwenden! Diese Linear-Integration ermöglicht es Ihnen, Ihren Projektmanagement-Workflow zu automatisieren, Issues und Teams zu verwalten und Ihren Entwicklungsprozess zu optimieren. Beginnen Sie mit einfachen Operationen wie dem Erstellen von Issues, dann erkunden Sie erweiterte Funktionen wie automatisierte State-Verwaltung und Fortschrittsverfolgung.
+Du bist jetzt bereit, die Linear-Integration in JoAi zu verwenden! Diese Linear-Integration ermöglicht es dir, deinen Projektmanagement-Workflow zu automatisieren, Issues und Teams zu verwalten und deinen Entwicklungsprozess zu optimieren. Beginne mit einfachen Operationen wie dem Erstellen von Issues, dann erkunde erweiterte Funktionen wie automatisierte State-Verwaltung und Fortschrittsverfolgung.
 
-Denken Sie daran, Ihren API Key sicher zu halten, ihn regelmäßig zu rotieren und Ihre API-Rate-Limits zu überwachen. Für erweiterte Automatisierung sollten Sie diese Linear-Integration mit Webhooks und anderen JoAi-Funktionen kombinieren. Erkunden Sie andere JoAi-Integrationen, um umfassende Automatisierungs-Workflows zu erstellen.
+Denke daran, deinen API Key sicher zu halten, ihn regelmäßig zu rotieren und deine API-Rate-Limits zu überwachen. Für erweiterte Automatisierung solltest du diese Linear-Integration mit Webhooks und anderen JoAi-Funktionen kombinieren. Erkunde andere JoAi-Integrationen, um umfassende Automatisierungs-Workflows zu erstellen.
 
-**Hinweis**: Diese Linear-Integration verwendet die Linear GraphQL API. Für die neuesten Funktionen und Fähigkeiten verweisen Sie auf die [Linear API-Dokumentation](https://developers.linear.app/docs/graphql/overview).
+**Hinweis**: Diese Linear-Integration verwendet die Linear GraphQL API. Für die neuesten Funktionen und Fähigkeiten verweise auf die [Linear API-Dokumentation](https://developers.linear.app/docs/graphql/overview).

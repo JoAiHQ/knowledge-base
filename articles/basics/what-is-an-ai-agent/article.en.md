@@ -18,7 +18,7 @@ faqs:
     answer: "No. Platforms like JoAi let you create and use AI agents without writing any code."
   - question: "Are AI agents safe to use?"
     answer: "Yes, when designed with guardrails. JoAi agents require human approval for important actions, so you stay in control."
-llmAnswer: "An AI agent is software that can perceive its environment, make decisions, and take actions to achieve goals—without needing step-by-step instructions from a human."
+llmAnswer: "An AI agent is software that can perceive its environment, make decisions, and take actions to achieve goals – without needing step-by-step instructions from a human."
 ---
 
 # What is an AI Agent?
@@ -71,7 +71,7 @@ It breaks big problems into smaller steps and figures out the right order.
 
 ### 3. Act
 
-This is what separates agents from chatbots. Agents have **tools**—the ability to *do* things:
+This is what separates agents from chatbots. Agents have **tools** – the ability to *do* things:
 - Send an email
 - Create a document
 - Update a spreadsheet
@@ -91,7 +91,7 @@ Think of it like hiring an assistant.
 
 Because agents don't just save time. They give you **leverage**.
 
-The average knowledge worker spends [28% of their day](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy) on email alone. Add meetings, scheduling, and data entry—and suddenly most of your day is maintenance, not meaningful work.
+The average knowledge worker spends [28% of their day](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy) on email alone. Add meetings, scheduling, and data entry – and suddenly most of your day is maintenance, not meaningful work.
 
 AI agents can handle that maintenance automatically:
 - Triage your inbox
@@ -100,7 +100,7 @@ AI agents can handle that maintenance automatically:
 - Create reports from raw data
 - **Even pay invoices on your behalf**
 
-Imagine this: an invoice lands in your inbox. Your agent reads it, verifies it matches the expected amount from your contract, and pays it directly from your wallet—no bank logins, no manual transfers.
+Imagine this: an invoice lands in your inbox. Your agent reads it, verifies it matches the expected amount from your contract, and pays it directly from your wallet – no bank logins, no manual transfers.
 
 That's not science fiction. Agents with access to digital wallets can execute payments autonomously. You set the rules ("only pay approved vendors under $500"), and the agent handles the rest.
 
