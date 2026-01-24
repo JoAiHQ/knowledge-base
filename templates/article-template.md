@@ -6,6 +6,7 @@ tags: ["tag1", "tag2"]
 author: "JoAi Team"
 publishedAt: "YYYY-MM-DD"
 updatedAt: "YYYY-MM-DD"
+draft: true
 featured: false
 difficulty: "beginner|intermediate|advanced"
 readTime: 5
