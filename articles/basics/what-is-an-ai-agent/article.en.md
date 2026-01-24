@@ -1,7 +1,7 @@
 ---
 title: "What is an AI Agent? Simple Explanation"
 description: "AI agents are software that can think, decide, and act on their own. Learn what makes them different from regular AI and why they matter for your work."
-category: "concepts"
+category: "basics"
 tags: ["ai agents", "beginner", "fundamentals", "ai basics", "automation"]
 author: "JoAi Team"
 publishedAt: "2026-01-24"

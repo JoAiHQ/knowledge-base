@@ -1,7 +1,7 @@
 ---
 title: "Was ist ein KI-Agent? Einfach erklärt"
 description: "KI-Agenten sind Software, die selbstständig denken, entscheiden und handeln kann. Erfahre, was sie von normaler KI unterscheidet und warum sie wichtig sind."
-category: "concepts"
+category: "basics"
 tags: ["ki agenten", "anfänger", "grundlagen", "ki basics", "automatisierung"]
 author: "JoAi Team"
 publishedAt: "2026-01-24"
