@@ -6,6 +6,7 @@ tags: ['linear', 'integration', 'api', 'projektmanagement', 'graphql']
 author: 'JoAi Team'
 publishedAt: '2024-01-20'
 updatedAt: '2024-01-20'
+draft: true
 featured: false
 difficulty: 'intermediate'
 readTime: 12
